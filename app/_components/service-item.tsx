@@ -59,6 +59,8 @@ const getTimeList = (bookings: Booking[]) => {
     const hour = Number(time.split(":")[0])
     const minute = Number(time.split(":")[1])
 
+    // nao exibir horarios no passado
+
     const hasBookingOnCurrentTime = bookings.some(
       (booking) =>
         booking.date.getHours() === hour &&
@@ -128,7 +130,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
       })
       await createBooking({
         serviceId: service.id,
-        userId: (data?.user as any).id,
+        // userId: (data?.user as any).id,
         date: newDate,
       })
       handleBookingSheetOpenChange()
